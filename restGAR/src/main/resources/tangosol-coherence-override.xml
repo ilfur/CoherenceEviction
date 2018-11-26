@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coherence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.oracle.com/coherence/coherence-operational-config"
+	xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-operational-config coherence-operational-config.xsd">
+
+	<cluster-config>
+		<member-identity>
+			<cluster-name system-property="tangosol.coherence.cluster">WEAPONRY_CLUSTER</cluster-name>
+		</member-identity>
+		<unicast-listener>
+			<address system-property="tangosol.coherence.localhost">localhost</address>
+		</unicast-listener>
+		<multicast-listener>
+			<address system-property="tangosol.coherence.clusteraddress">239.192.0.0</address>
+			<port system-property="tangosol.coherence.clusterport">7574</port>
+			<time-to-live system-property="tangosol.coherence.ttl">0</time-to-live>
+			<join-timeout-milliseconds>2000</join-timeout-milliseconds>
+		</multicast-listener>
+	</cluster-config>
+	
+</coherence>

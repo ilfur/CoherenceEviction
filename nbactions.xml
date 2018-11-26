@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-test</actionName>
+            <displayName>test</displayName>
+            <goals>
+                <goal>test</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-pump</actionName>
+            <displayName>pump</displayName>
+            <goals>
+                <goal>exec:java@pump</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-Dtangosol.coherence.cacheconfig=config/coherence-server-config.xml  -Dtangosol.coherence.rest.config=config/coherence-rest-config.xml -XX:MaxDirectMemorySize=8192m -classpath %classpath com.tangosol.net.DefaultCacheServer</exec.args>
+                <exec.executable>java</exec.executable>
+            </properties>
+        </action>
+        <action>
+            <actionName>debug</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -Dtangosol.coherence.cacheconfig=config/coherence-server-config.xml  -Dtangosol.coherence.rest.config=config/coherence-rest-config.xml -XX:MaxDirectMemorySize=8192m -classpath %classpath com.tangosol.net.DefaultCacheServer</exec.args>
+                <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
+            </properties>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-Dtangosol.coherence.cacheconfig=config/coherence-server-config.xml  -Dtangosol.coherence.rest.config=config/coherence-rest-config.xml -XX:MaxDirectMemorySize=8192m -classpath %classpath com.tangosol.net.DefaultCacheServer</exec.args>
+                <exec.executable>java</exec.executable>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-packageWAR</actionName>
+            <displayName>packageWAR</displayName>
+            <goals>
+                <goal>package</goal>
+            </goals>
+        </action>
+    </actions>

@@ -1,0 +1,60 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+    <id>bin</id>
+    <baseDirectory>/</baseDirectory>
+    <formats>
+        <format>ear</format>
+    </formats>
+    <files>
+        <file>
+            <source>config/weblogic-application.xml</source>
+            <outputDirectory>META-INF</outputDirectory>
+        </file>
+        <file>
+            <source>config/application.xml</source>
+            <outputDirectory>META-INF</outputDirectory>
+        </file>
+        
+        <file>
+            <source>webinf/web.xml</source>
+            <outputDirectory>partnerCache.war/WEB-INF</outputDirectory>
+        </file>
+        
+        <file>
+            <source>config/coherence-application.xml</source>
+            <outputDirectory>partnerCache.gar</outputDirectory>
+        </file>
+        <file>
+            <source>config/coherence-cache-config.xml</source>
+            <outputDirectory>partnerCache.gar/META-INF</outputDirectory>
+        </file>
+        <file>
+            <source>config/coherence-rest-config.xml</source>
+            <outputDirectory>partnerCache.gar</outputDirectory>
+        </file>
+        <file>
+            <source>config/person-pof-config.xml</source>
+            <outputDirectory>partnerCache.gar/META-INF</outputDirectory>
+        </file>
+        <file>
+            <source>config/tangosol-coherence-override.xml</source>
+            <outputDirectory>partnerCache.gar</outputDirectory>
+
+        </file>
+    </files>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/classes</directory>
+            <outputDirectory>partnerCache.war/WEB-INF/classes</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.build.directory}/classes</directory>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.build.directory}/classes</directory>
+            <outputDirectory>partnerCache.gar</outputDirectory>
+        </fileSet>
+    </fileSets>
+    
+</assembly>

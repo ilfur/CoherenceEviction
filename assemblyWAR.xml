@@ -1,0 +1,29 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+    <id>bin</id>
+    <baseDirectory>/</baseDirectory>
+    <formats>
+        <format>war</format>
+    </formats>
+    <files>
+        <file>
+            <source>webinf/web.xml</source>
+            <outputDirectory>WEB-INF</outputDirectory>
+        </file>
+    </files>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/classes</directory>
+            <outputDirectory>WEB-INF/classes</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <!--<dependencySets>
+        <dependencySet>
+            <includes>
+                <include>com.oracle.coherence:coherence</include>
+                <include>com.oracle.coherence:coherence-rest</include>
+            </includes>
+            <outputDirectory>WEB-INF/lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>-->
+</assembly>

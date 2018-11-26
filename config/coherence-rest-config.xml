@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<rest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://xmlns.oracle.com/coherence/coherence-rest-config"
+      xsi:schemaLocation=
+         "http://xmlns.oracle.com/coherence/coherence-rest-config
+      coherence-rest-config.xsd">
+  
+    <resources>
+        <resource>
+            <cache-name>partner-cache</cache-name>
+            <key-class>java.lang.String</key-class>
+            <value-class>com.ichag.coherencemaventests.Person</value-class>
+            <query>
+                <name>nameQ</name>
+                <expression>name like :pname</expression>
+            </query>
+            <query>
+                <name>streetQ</name>
+                <expression>address.street like :pstreet</expression>
+            </query>
+            <query>
+                <name>nameIcke</name>
+                <expression>name is 'icke_5'</expression>
+            </query>
+            <direct-query enabled="true" />
+        </resource>
+    </resources>
+</rest>

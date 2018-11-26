@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<coherence-application xmlns="http://xmlns.oracle.com/coherence/coherence-application">
+   <cache-configuration-ref>/META-INF/coherence-cache-config.xml</cache-configuration-ref>
+   <pof-configuration-ref>/META-INF/person-pof-config.xml</pof-configuration-ref>
+</coherence-application>

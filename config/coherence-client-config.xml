@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<cache-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://xmlns.oracle.com/coherence/coherence-cache-config"
+              xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-cache-config
+   coherence-cache-config.xsd">
+    
+    <defaults>
+      <serializer>
+         <instance>
+            <class-name>com.tangosol.io.pof.ConfigurablePofContext</class-name>
+            <init-params>
+               <init-param>
+                  <param-type>String</param-type>
+                  <param-value>/Users/marcelboermann/Downloads/svi_coherence/CoherenceFullTest/config/person-pof-config.xml</param-value>
+               </init-param>
+            </init-params>
+         </instance>
+      </serializer>
+   </defaults>
+   
+   
+    <caching-scheme-mapping>
+        <cache-mapping>
+            <cache-name>partner-cache</cache-name>
+            <scheme-name>dist-http</scheme-name>
+        </cache-mapping>
+    </caching-scheme-mapping>
+
+    <caching-schemes>
+        <distributed-scheme>
+            <scheme-name>dist-http</scheme-name>
+            <thread-count>16</thread-count>
+            <partition-count>257</partition-count> <!-- best is max 50MB per partition... so 8191 is only enough for 100G-->
+            <backing-map-scheme>
+                <partitioned>true</partitioned>
+                <external-scheme>
+                    <nio-memory-manager>
+                        <initial-size>1MB</initial-size>
+                        <maximum-size>5MB</maximum-size>
+                    </nio-memory-manager>
+                    <high-units>5000000</high-units>
+                    <unit-calculator>BINARY</unit-calculator>
+                    <unit-factor>4096</unit-factor> <!-- 1MB per entry, could be far less like 1KB.... -->
+                </external-scheme>
+            </backing-map-scheme>
+            <autostart>true</autostart>
+        </distributed-scheme>
+
+    </caching-schemes>
+</cache-config>

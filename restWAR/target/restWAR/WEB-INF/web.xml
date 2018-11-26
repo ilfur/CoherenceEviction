@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'US-ASCII'?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <listener>
+        <listener-class>
+            com.tangosol.coherence.rest.servlet.DefaultServletContextListener
+        </listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>Coherence REST</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer
+        </servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>
+                com.tangosol.coherence.rest.server.ContainerResourceConfig
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet>
+        <servlet-name>Fill the Cache</servlet-name>
+        <servlet-class>com.ichag.PumpDemoData</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Fill the Cache from DB</servlet-name>
+        <servlet-class>com.ichag.PumpFromDB</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Create Indexes</servlet-name>
+        <servlet-class>com.ichag.CreateIdx</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Coherence REST</servlet-name>
+        <url-pattern>/caches/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Fill the Cache</servlet-name>
+        <url-pattern>/fill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Fill the Cache from DB</servlet-name>
+        <url-pattern>/fillDB</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Create Indexes</servlet-name>
+        <url-pattern>/creidx</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

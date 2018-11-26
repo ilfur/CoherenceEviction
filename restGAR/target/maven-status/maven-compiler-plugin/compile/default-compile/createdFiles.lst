@@ -1,0 +1,8 @@
+com/ichag/coherencedata/Auftrag.class
+com/ichag/PumpFromDB.class
+com/ichag/coherencedata/Address.class
+com/ichag/CreateIdx.class
+com/ichag/coherencedata/AufPos.class
+com/ichag/coherencedata/Person.class
+com/ichag/RestCacheLoader.class
+com/ichag/PumpDemoData.class
